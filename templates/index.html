@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="{{ url_for('static',filename='css/style.css') }}"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+
+    <title>CowinPDF</title>
+  </head>
+  <body>
+    <form
+      action="{{ url_for('phonenumbers') }}"
+      method="post"
+      enctype="multipart/form-data"
+      class="form"
+    >
+      <div class="file-upload-wrapper" data-text="Select your file!">
+        <input name="file" type="file" class="file-upload-field" accept=".pdf"/>
+      </div>
+      <input type="submit" class="form-button" />
+    </form>
+
+    <div>
+      <span>Estimated Time : </span>
+      <span>1 minute / mb </span>
+    </div>
+  </body>
+  <script type=text/javascript src="{{ url_for('static', filename='js/main.js') }}">
+  </script>
+</html>

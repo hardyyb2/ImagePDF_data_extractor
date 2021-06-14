@@ -21,9 +21,6 @@ PDF data extractor can be used to extract any kind of required data from image b
   `virtualenv env`
 - Install all dependencies with  
   `pip install -r requirements.txt`
-- Install _poppler_ in your system
-  - [Windows](https://stackoverflow.com/questions/18381713/how-to-install-poppler-on-windows)
-  - `brew install poppler` on Mac
 - Install _tesseract_ on your system
   - [Windows](https://stackoverflow.com/questions/46140485/tesseract-installation-in-windows)
   - `brew install tesseract` on Mac
@@ -34,18 +31,20 @@ PDF data extractor can be used to extract any kind of required data from image b
   - `source env/bin/activate` on Mac
   - `env\Scripts\activate` on Windows
 - After activation, in the command line enter  
-  `export FLASK_APP=server` and `export FLASK_ENV=development`
+  `export FLASK_APP=app` and `export FLASK_ENV=development`
 - Now run with  
   `flask run`
 - Server runs at `localhost:5000`
 
 ## HOW TO USE
 
-- Once the server is running on `localhost:5000`, send a **HTTP POST** request to **/phonenumbers** with _form-data_ field named _'file'_ and attach the PDF to it.
+- Once the server is running on `localhost:5000`, open in browser, upload the PDF and submit.
+  > Average time - 1 min/mb (PDF file)
+- Alternatively, send a **HTTP POST** request to **/phonenumbers** with _form-data_ field named _'file'_ and attach the PDF to it.
 
 ## HOW IT WORKS
 
-- The given PDF is scanned and converted to _jpeg_ images using **pdf2image** library which uses **poppler** under the hood.
+- The given PDF is scanned and converted to **png** images using **PyMuPDF** library.
 - These images are then evaluated with **pytesseract** which uses **tesseract-OCR** under the hood to recognize letters from images (OCR technology).
 - We then pass the extracted text through our function which filters out phone numbers.
 
