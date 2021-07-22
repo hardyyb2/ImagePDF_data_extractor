@@ -45,7 +45,7 @@ def phonenumbers():
 
         # Get phone number
         result = extract_phone_numbers(save_path)
-        return result
+        return render_template("phonenumbers.html", result=result)
 
 
 if __name__ == "__main__":

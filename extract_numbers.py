@@ -89,4 +89,4 @@ def extract_phone_numbers(PDF_file):
 
     app.logger.info("Process Complete...")
 
-    return jsonify(success=True, data=result)
+    return result
