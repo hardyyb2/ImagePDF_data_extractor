@@ -34,7 +34,6 @@ def extract_phone_numbers(PDF_file):
         image_save_dir.mkdir(exist_ok=True)
         page.save(image_save_dir / f"page_{image_counter}.jpg", "JPEG")
         image_counter = image_counter + 1
-        image_counter = image_counter + 1
 
     # get count of total number of pages
     filelimit = image_counter - 1
@@ -42,7 +41,7 @@ def extract_phone_numbers(PDF_file):
     result = []
 
     for i in range(1, filelimit + 1):
-        filename = image_save_dir / f"page_{i}.png"
+        filename = image_save_dir / f"page_{i}.jpg"
         # Recognize the text as string in image using pytesserct
 
         try:
